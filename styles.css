@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #f4f4f4;
+    line-height: 1.6;
+    background-color: #292929;
+    padding: 0;
+}
+
+.main-header {
+    background-color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    color: #4CAF50;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: #f4f4f4;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.subordinate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensure three subordinates per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+.team-member, .subordinate-member {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member:hover, .subordinate-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* Subtle green glow */
+}
+
+/* Image Styling */
+img {
+    width: 160px; /* Fixed width */
+    height: 200px; /* Fixed height to maintain 4:5 aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover; /* Ensures the image covers the entire box while maintaining aspect ratio */
+}
+
+/* Text and Box Adjustments */
+.member-details {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.member-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #f4f4f4;
+}
+
+.member-details p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #f4f4f4;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Stack members vertically on smaller screens */
+    .team-member, .subordinate-member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member-details {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    img {
+        margin-bottom: 0; /* Remove bottom margin to keep spacing consistent */
+    }
+
+    .subordinate-grid {
+        grid-template-columns: 1fr 1fr; /* Reduce to two columns per row */
+    }
+}
+
+@media (max-width: 600px) {
+    /* Adjust header and hero section font sizes for very small screens */
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .team-grid, .subordinate-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    img {
+        width: 100%;  /* Image takes full width for small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
