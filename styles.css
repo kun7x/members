@@ -1,3 +1,9 @@
+:root {
+    --primary-color: #292929;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,16 +11,19 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
     color: #f4f4f4;
     line-height: 1.6;
-    background-color: #292929;
+    background-color: var(--primary-color);
     padding: 0;
 }
 
 .main-header {
-    background-color: #333;
-    padding: 20px;
+    background-color: var(--secondary-color);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +32,7 @@ body {
 
 .main-header h1 {
     font-size: 2.5em;
-    color: #4CAF50;
+    color: var(--background-color);
 }
 
 .hero-section {
@@ -43,12 +52,11 @@ body {
     margin-bottom: 0;
 }
 
-/* Section Titles */
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
-    color: #4CAF50;
+    color: var(--background-color);
 }
 
 .team-grid {
@@ -60,7 +68,7 @@ h2 {
 
 .subordinate-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ensure three subordinates per row */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
 }
@@ -68,7 +76,7 @@ h2 {
 .team-member, .subordinate-member {
     display: flex;
     align-items: center;
-    background-color: #333;
+    background-color: var(--secondary-color);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -77,19 +85,16 @@ h2 {
 
 .team-member:hover, .subordinate-member:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* Subtle green glow */
+    box-shadow: 0 0 15px rgba(77, 186, 210, 0.5);
 }
 
-/* Image Styling */
 img {
-    width: 160px; /* Fixed width */
-    height: 200px; /* Fixed height to maintain 4:5 aspect ratio */
+    width: 160px;
+    height: 200px;
     border-radius: 10px;
-    margin-bottom: 15px;
-    object-fit: cover; /* Ensures the image covers the entire box while maintaining aspect ratio */
+    object-fit: cover;
 }
 
-/* Text and Box Adjustments */
 .member-details {
     margin-left: 20px;
     flex-grow: 1;
@@ -106,9 +111,8 @@ img {
     color: #ccc;
 }
 
-/* Footer Styling */
 footer {
-    background-color: #333;
+    background-color: var(--secondary-color);
     padding: 20px;
     text-align: center;
     margin-top: 50px;
@@ -116,7 +120,7 @@ footer {
 }
 
 footer a {
-    color: #4CAF50;
+    color: var(--background-color);
     text-decoration: none;
 }
 
@@ -124,9 +128,13 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design */
+@media (max-width: 1148px) {
+    .subordinate-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Stack members vertically on smaller screens */
     .team-member, .subordinate-member {
         flex-direction: column;
         text-align: center;
@@ -137,17 +145,12 @@ footer a:hover {
         margin-top: 15px;
     }
 
-    img {
-        margin-bottom: 0; /* Remove bottom margin to keep spacing consistent */
-    }
-
     .subordinate-grid {
-        grid-template-columns: 1fr 1fr; /* Reduce to two columns per row */
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 600px) {
-    /* Adjust header and hero section font sizes for very small screens */
     .main-header h1 {
         font-size: 2em;
     }
@@ -161,11 +164,12 @@ footer a:hover {
     }
 
     .team-grid, .subordinate-grid {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
     }
-
-    img {
-        width: 100%;  /* Image takes full width for small screens */
-        height: auto; /* Maintain aspect ratio */
-    }
+}
+.logo {
+    width: 64px;
+    height: 64px;
+    padding-left: 0;
+    object-fit: cover;
 }
